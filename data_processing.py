@@ -1,4 +1,3 @@
-from risk_indices import ttc, drac, tet, tit
 import pandas as pd
 import numpy as np
 
