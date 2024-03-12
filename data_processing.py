@@ -12,10 +12,9 @@ for i in range(1, 24):
     # find the two closest vehicles
     vehX = []
     for j in l:
-        vehX.append([j, scene[scene.Vehicle_ID == j].X.mean()])
+        vehX.append(scene[scene.Vehicle_ID == j].X.mean())
     d = dict(zip(l, vehX))
-    
-    pos_d = {key: [val for val in value if val >= 0] for key, value in d.items()}
+    pos_d = {key: value for key, value in d.items() if value >= 0}
     lowest_value = sorted(pos_d.values())[0]
     keys_lowest_values = [key for key, value in pos_d.items() if value == lowest_value]
     scene1veh = scene[scene.Vehicle_ID == keys_lowest_values[0]]
